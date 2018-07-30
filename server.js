@@ -23,8 +23,15 @@ var server = http.createServer(function(request, response){
 
   if(path === '/'){
     response.statusCode = 200
+    let string = fs.readFileSync('./index.html') 
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('哈哈哈')
+    response.write(string)
+    response.end()
+  }else if(path === '/main.js'){
+    response.statusCode = 200
+    let string = fs.readFileSync('./main.js') 
+    response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
+    response.write(string)
     response.end()
   }else{
     response.statusCode = 404
