@@ -36,14 +36,16 @@ var server = http.createServer(function (request, response) {
   } else if (path === '/xxx') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/xml;charset=utf-8')
+
+    //HTTP访问控制（CORS）允许来自http://mataotao.com:8001的请求,并给予相应
+    response.setHeader('Access-Control-Allow-Origin','http://mataotao.com:8001')
+    
+    
     response.write(`
     {
       "note":{
         "from":"mataotao",
-        "to":"ni",
-        "bool":true,
-        "arr":["a",1,2,3],
-        "num":3
+        "to":"ni"
       }
     }
     `)
