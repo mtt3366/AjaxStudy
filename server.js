@@ -37,12 +37,15 @@ var server = http.createServer(function (request, response) {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/xml;charset=utf-8')
     response.write(`
-    <note>
-      <to>Tove</to>
-      <from>Jani</from>
-      <heading>Reminder</heading>
-      <body>Don't forget me this weekend!</body>
-    </note>
+    {
+      "note":{
+        "from":"mataotao",
+        "to":"ni",
+        "bool":true,
+        "arr":["a",1,2,3],
+        "num":3
+      }
+    }
     `)
     response.end()
   } else {

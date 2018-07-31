@@ -6,7 +6,14 @@ myButton.addEventListener("click",(e)=>{
             console.log("请求和响应都完毕了");
             if ( request.status>=200&&request.status<=400){
                 console.log('说明请求成功');
-                console.log(request.responseText);//打印响应的第四部分,字符串
+                console.log(request.responseText);
+                console.log( typeof request.responseText);//string
+
+                let string = request.responseText;
+                //把符合json语法的字符串转化为js对应的值
+                let object2 = window.JSON.parse(string);
+                console.log( typeof object2)
+                console.log(object2)
             }else if(request.status>=400){
                 console.log("响应失败");
             }
