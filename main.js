@@ -1,6 +1,12 @@
 let myButton = document.getElementById('myButton');
 myButton.addEventListener("click",(e)=>{
     let request = new XMLHttpRequest();
+    request.open('POST','/xxx')//配置request
+    //设置第二部分
+    request.setRequestHeader("mataotao","123123xxx")
+    request.setRequestHeader('content-type','x-www-form-urlencoded')
+    request.send("a=1&b=2");//发送请求
+
     request.onreadystatechange = ()=>{
         if(request.readyState ===4){
             console.log("请求和响应都完毕了");
@@ -15,6 +21,4 @@ myButton.addEventListener("click",(e)=>{
             }
         } 
     }
-    request.open('GET','http://jack.com:8002/xxx')//配置request.请求的路径为第二个网站的8002端口
-    request.send();//发送请求
 })
