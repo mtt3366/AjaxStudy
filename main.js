@@ -12,10 +12,29 @@ myButton.addEventListener("click",(e)=>{
             console.log("请求和响应都完毕了");
             if ( request.status>=200&&request.status<=400){
                 console.log('说明请求成功');
+
+                //*核心代码 */
+                //第一部分:
+                console.log("获取响应第一部分:")
+                console.log(request.status)//200
+                console.log(request.statusText)//ok
+
+                //第二部分:
+                console.log("获取响应第二部分:")
+                console.log(request.getResponseHeader('Content-Type'))
+                console.log(request.getAllResponseHeaders())
+
+                //第四部分:
+                console.log("获取响应第四部分:")
+                console.log(request.responseText)
+                 //*核心代码 */
+
+
                 let string = request.responseText;
                 //把符合json语法的字符串转化为js对应的值
                 let object2 = window.JSON.parse(string);
-                console.log(object2)
+                // console.log(object2)
+
             }else if(request.status>=400){
                 console.log("响应失败");
             }
