@@ -35,12 +35,9 @@ var server = http.createServer(function (request, response) {
     response.end()
   } else if (path === '/xxx') {
     response.statusCode = 200
-    response.setHeader('Content-Type', 'text/xml;charset=utf-8')
-
+    response.setHeader('Content-Type', 'text/html;charset=utf-8')
     //HTTP访问控制（CORS）允许来自http://mataotao.com:8001的请求,并给予相应
     response.setHeader('Access-Control-Allow-Origin','http://mataotao.com:8001')
-    
-    
     response.write(`
     {
       "note":{
@@ -52,7 +49,7 @@ var server = http.createServer(function (request, response) {
     response.end()
   } else {
     response.statusCode = 404
-    response.setHeader('Content-Type', 'text/html;charset=utf-8')
+    response.setHeader('Content-Type', 'application/json;charset=utf-8')
     response.write(`{
       "error":"404error"
     }`)
