@@ -7,22 +7,8 @@ window.jQuery = ()=>{//假装有一个简易的jQuery
     return object1;
 }
 
-window.jQuery.ajax = (options)=>{
-    let url;
-    if(arguments.length===1){//参数长度为1
-        url = options.url;
-    }else if(arguments.length===2){//参数长度为2
-        url = arguments[0];
-        options = arguments[1];
-    }
-    //获取传进来的对象的value
-    let method = options.method;
-    let path = options.path;
-    let body = options.body;
-    let successFn = options.successFn;
-    let failFn = options.failFn;
-    let headers = options.headers;
-
+window.jQuery.ajax = ({method,path,body,successFn,failFn,headers})=>{//ES6语法
+    
     let request = new XMLHttpRequest();
     request.open(method,path);//配置
 
