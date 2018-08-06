@@ -16,5 +16,11 @@ myButton.addEventListener("click",(e)=>{
         data:"username=mtt&password=1",
         dataType:'json'//预期服务器返回的数据类型,如果不写,就是响应里设置的
     }
-    ).then(success,fail)//$.ajax()返回一个promise
+    ).then(()=>{
+        console.log("成功")
+        console.log(responseText);
+    },()=>{
+        console.log("失败")
+        console.log(request);
+    })//$.ajax()返回一个promise
 })
